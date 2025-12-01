@@ -1,0 +1,29 @@
+---
+title: "Dataset 1 Dashboard"
+format:
+  html:
+    theme: flatly
+    embed-resources: true
+---
+
+# CDC Nutrition, Physical Activity, and Obesity Data
+
+## Load the dataset
+
+```{r}
+library(tidyverse)
+library(DT)
+library(plotly)
+
+data <- read_csv("Nutrition__Physical_Activity__and_Obesity_-_Behavioral_Risk_Factor_Surveillance_System.csv")
+
+datatable(data, options = list(pageLength = 10, scrollX = TRUE))
+```
+
+```{r}
+datatable(data, options = list(pageLength = 10, scrollX = TRUE))
+```
+
+\`\`\`{plot_ly(} data, x = \~LocationDesc, \# X-axis = state y = \~Data_Value, \# Y-axis = percentage value type = "scatter", mode = "markers", color = \~LocationDesc ) %\>% layout( title = "Obesity and Physical Activity by State (CDC)", xaxis = list(title = "State"), yaxis = list(title = "Data Value (%)") )
+
+\`\`\`
